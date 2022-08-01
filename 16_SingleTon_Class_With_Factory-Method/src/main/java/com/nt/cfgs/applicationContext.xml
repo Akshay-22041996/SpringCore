@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--  even Laptop class is singleton still here we LOSE singleton behavior because 
+	  IOC container internally uses reflection api to create object that's why even 
+	  we declare constructor as private it doesn't matter -->
+	<bean id="b1" class="com.nt.comp.Laptop" />
+	<bean id="b2" class="com.nt.comp.Laptop"/>
+
+	<!--  continues singleton class behavior only if we write factory-method because of logic we
+	placed in that method otherwise it lose it's singleton behavior -->
+<!-- 	<bean id="b1" class="com.nt.comp.Laptop" factory-method="getInstance"/>
+	<bean id="b2" class="com.nt.comp.Laptop" factory-method="getInstance"/> -->
+</beans>
